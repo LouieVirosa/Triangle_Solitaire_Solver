@@ -61,30 +61,32 @@ int main (int argc, char **argv)
 	{
 		syntax_error = true;
 	}
-
-	if (sscanf (argv[1], "%hhu", &missing_row) != 1) 
+	else
 	{
-		syntax_error = true;
-	}
-
-	if (sscanf (argv[2], "%hhu", &missing_column) != 1) 
-	{
-		syntax_error = true;
-	}
-	if (missing_row > 4 || missing_column > 4)
-	{
-		syntax_error = true;
-	}
-	if (5 == argc)
-	{
-		if (sscanf (argv[3], "%hhu", &final_row) != 1) 
+		if (sscanf (argv[1], "%hhu", &missing_row) != 1) 
 		{
 			syntax_error = true;
 		}
 
-		if (sscanf (argv[4], "%hhu", &final_column) != 1) 
+		if (sscanf (argv[2], "%hhu", &missing_column) != 1) 
 		{
 			syntax_error = true;
+		}
+		if (missing_row > 4 || missing_column > 4)
+		{
+			syntax_error = true;
+		}
+		if (5 == argc)
+		{
+			if (sscanf (argv[3], "%hhu", &final_row) != 1) 
+			{
+				syntax_error = true;
+			}
+
+			if (sscanf (argv[4], "%hhu", &final_column) != 1) 
+			{
+				syntax_error = true;
+			}
 		}
 	}
 	if (syntax_error)
